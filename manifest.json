@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+
+    "name": "Tumblr - Flagged Posts Cleaner",
+    "description": "Emzar will remove all flagged posts from your activity feed",
+    "version": "1.0",
+    "icons": {
+        "16": "icons/favicon-16x16.png",
+        "48": "icons/favicon-48x48.png",
+        "128": "icons/favicon-128x128.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "icons/favicon-16x16.png",
+            "32": "icons/favicon-32x32.png",
+            "48": "icons/favicon-48x48.png",
+            "128": "icons/favicon-128x128.png"
+        }
+    },
+
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    
+    "content_scripts": [{
+        "js": ["scripts/lib/jquery-3.7.1.min.js", "scripts/app.module.js"],
+        "matches": [
+            "https://tumblr.com/*",
+            "https://www.tumblr.com/*"
+        ]
+    }],
+
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';"
+    }
+}
